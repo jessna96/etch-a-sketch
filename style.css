@@ -1,0 +1,41 @@
+.grid_container div {
+    outline: 1px solid lightgrey;
+}
+
+.grid_container {
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    width: 60vh;
+    margin: 0 auto;
+}
+
+.row {
+    flex: 1;
+    display: flex;
+}
+
+.row_item {
+    flex: 1;
+}
+
+.button_container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: cadetblue;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.5);
+    border: 0;
+    border-radius: 4px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+
+
