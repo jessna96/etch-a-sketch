@@ -1,5 +1,5 @@
-.grid_container div {
-    outline: 1px solid lightgrey;
+.grid_container {
+    outline: 2px solid darkgray;
 }
 
 .grid_container {
@@ -17,6 +17,7 @@
 
 .row_item {
     flex: 1;
+    filter: brightness(100%);
 }
 
 .button_container {

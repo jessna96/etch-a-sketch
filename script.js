@@ -19,12 +19,13 @@ const updateDOM = () => {
     const squares = document.querySelectorAll(".row_item");
     squares.forEach((square) => {
         square.addEventListener('mouseover', (event) => {
+            console.log(event.target.getAttribute('style'));
             event.target.setAttribute('style', 'background-color: lightblue');
         });
     });
 }
 
-const render = (gridSize)=>{
+const render = (gridSize) => {
     renderGrid(gridSize);
     updateDOM();
 };
