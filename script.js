@@ -1,4 +1,4 @@
-const createGrid = (size) => {
+const createGrid2 = (size) => {
     let gridHTML = ``;
     for (let i = 0; i < size; i++) {
         gridHTML += `<div class="row">`;
@@ -8,6 +8,25 @@ const createGrid = (size) => {
         gridHTML += `</div>`;
     }
     return gridHTML;
+}
+
+const rowToHtml = (row) => row.map(() => `<div class="row_item"></div>`).join('')
+
+const createGrid = (size) => {
+    //return range(0,size).map(()=>`<div class="row">${range(0,size).map(()=>`<div class="row_item"></div>`).join('')}</div>`).join('');
+    return range2D(0, size).map((row) => `<div class="row">${rowToHtml(row)}</div>`).join('');
+}
+
+const range2D = (start, end) => {
+    return range(start, end).map(() => range(start, end));
+}
+
+const range = (start, end) => {
+    let arr = [];
+    for (let i = start; i < end; i++) {
+        arr.push(i);
+    }
+    return arr;
 }
 
 const renderGrid = (gridSize) => {
