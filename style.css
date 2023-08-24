@@ -17,7 +17,6 @@
 
 .row_item {
     flex: 1;
-    filter: brightness(100%);
 }
 
 .button_container {

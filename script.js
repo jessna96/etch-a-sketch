@@ -1,20 +1,7 @@
-const createGrid2 = (size) => {
-  let gridHTML = ``;
-  for (let i = 0; i < size; i++) {
-    gridHTML += `<div class="row">`;
-    for (let i = 0; i < size; i++) {
-      gridHTML += `<div class="row_item"></div>`;
-    }
-    gridHTML += `</div>`;
-  }
-  return gridHTML;
-};
-
 const rowToHtml = (row) =>
   row.map(() => `<div class="row_item"></div>`).join("");
 
 const createGrid = (size) => {
-  //return range(0,size).map(()=>`<div class="row">${range(0,size).map(()=>`<div class="row_item"></div>`).join('')}</div>`).join('');
   return range2D(0, size)
     .map((row) => `<div class="row">${rowToHtml(row)}</div>`)
     .join("");
@@ -37,12 +24,20 @@ const renderGrid = (gridSize) => {
   divGrid.innerHTML = createGrid(gridSize);
 };
 
+const getRandomInt = (max) => {
+  return Math.floor(Math.random() * max);
+}
+
+const getRandomRGB = () => {
+  return `rgb(${getRandomInt(255)}, ${getRandomInt(255)}, ${getRandomInt(255)})`;
+}
+
 const updateDOM = () => {
   const squares = document.querySelectorAll(".row_item");
   squares.forEach((square) => {
     square.addEventListener("mouseover", (event) => {
-      console.log(event.target.getAttribute("style"));
-      event.target.setAttribute("style", "background-color: lightblue");
+      event.target.style.backgroundColor ||= getRandomRGB();
+      event.target.style.opacity = Math.min(+event.target.style.opacity + 0.1, 1);
     });
   });
 };
@@ -53,8 +48,6 @@ const render = (gridSize) => {
 };
 
 render(16);
-
-//add 10% of black: CSS filter: brightness(100%)  -> 0% is completely black
 
 const newGridBtn = document.querySelector("#new_grid_btn");
 
